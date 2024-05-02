@@ -1,0 +1,197 @@
+[
+    {
+        "username": "Himanshu",
+        "password": "pass123",
+        "email": "user1@example.com",
+        "phone": "1234567890",
+        "isActive": true,
+        "balance" : 100000,
+        "haveTakenLoan": true,
+        "loanDetails": {
+            "type": "EducationLoan",
+            "principalAmount": 10000,
+            "interestRate": 5.0,
+            "tenure": 2
+        },
+        "accNo": "ACC1001",
+        "typeOfAccount": "Savings",
+        "transactions": [
+            {
+                "transactionId": "T1001",
+                "date": "2024-01-15",
+                "amount": 500,
+                "type": "deposit"
+            },
+            {
+                "transactionId": "T1002",
+                "date": "2024-02-10",
+                "amount": 200,
+                "type": "withdraw"
+            }
+        ],
+        "isAdmin": false
+    },
+    {
+        "username": "adminUser",
+        "password": "adminPass",
+        "email": "admin@example.com",
+        "phone": "0987654321",
+        "isActive": true,
+        "balance" : 657380.98,
+        "haveTakenLoan": false,
+        "accNo": "ACC1002",
+        "typeOfAccount": "Current",
+        "transactions": [],
+        "isAdmin": true,
+        "adminDetails": {
+            "adminId": "ADMIN100",
+            "name": "Admin User"
+        }
+    },
+    {
+	    "username": "user2",
+	    "password": "user2pass",
+	    "email": "user2@example.com",
+	    "phone": "1122334455",
+	    "isActive": true,
+	    "balance" : 76457380.98,
+	    "haveTakenLoan": true,
+	    "loanDetails": {
+	        "type": "PersonalLoan",
+	        "principalAmount": 15000,
+	        "interestRate": 7.5,
+	        "tenure": 3
+	    },
+	    "accNo": "ACC1003",
+	    "typeOfAccount": "Checking",
+	    "transactions": [
+	        {
+	            "transactionId": "T2001",
+	            "date": "2024-03-20",
+	            "amount": 300,
+	            "type": "deposit"
+	        },
+	        {
+	            "transactionId": "T2002",
+	            "date": "2024-04-05",
+	            "amount": 450,
+	            "type": "withdraw"
+	        }
+	    ],
+	    "isAdmin": false
+	},
+	{
+	    "username": "user3",
+	    "password": "pass456",
+	    "email": "user3@example.net",
+	    "phone": "1233211234",
+	    "isActive": false,
+	    "balance" : 100.87,
+	    "haveTakenLoan": false,
+	    "accNo": "ACC1004",
+	    "typeOfAccount": "Savings",
+	    "transactions": [],
+	    "isAdmin": false
+	},
+	{
+	    "username": "user4",
+	    "password": "password789",
+	    "email": "user4@example.org",
+	    "phone": "9876543210",
+	    "isActive": true,
+	    "balance" : 6532380.98,
+	    "haveTakenLoan": true,
+	    "loanDetails": {
+	        "type": "EducationLoan",
+	        "principalAmount": 20000,
+	        "interestRate": 6.0,
+	        "tenure": 4
+	    },
+	    "accNo": "ACC1005",
+	    "typeOfAccount": "Current",
+	    "transactions": [
+	        {
+	            "transactionId": "T4001",
+	            "date": "2024-02-11",
+	            "amount": 500,
+	            "type": "deposit"
+	        }
+	    ],
+	    "isAdmin": false
+	},
+	{
+	    "username": "user5",
+	    "password": "user5pass",
+	    "email": "user5@example.com",
+	    "phone": "1223322123",
+	    "isActive": true,
+	    "balance" : 657380.758,
+	    "haveTakenLoan": false,
+	    "accNo": "ACC1006",
+	    "typeOfAccount": "Savings",
+	    "transactions": [
+	        {
+	            "transactionId": "T5001",
+	            "date": "2024-01-25",
+	            "amount": 1000,
+	            "type": "deposit"
+	        },
+	        {
+	            "transactionId": "T5002",
+	            "date": "2024-03-10",
+	            "amount": 300,
+	            "type": "withdraw"
+	        }
+	    ],
+	    "isAdmin": false
+	},
+	{
+	    "username": "user6",
+	    "password": "strongPassword123",
+	    "email": "user6@example.net",
+	    "phone": "1987654321",
+	    "isActive": true,
+	    "balance" : 232380.98,
+	    "haveTakenLoan": true,
+	    "loanDetails": {
+	        "type": "HouseLoan",
+	        "principalAmount": 50000,
+	        "interestRate": 4.5,
+	        "tenure": 10
+	    },
+	    "accNo": "ACC1007",
+	    "typeOfAccount": "Checking",
+	    "transactions": [
+	        {
+	            "transactionId": "T6001",
+	            "date": "2024-02-15",
+	            "amount": 1500,
+	            "type": "deposit"
+	        }
+	    ],
+	    "isAdmin": true,
+	    "adminDetails": {
+	        "adminId": "ADMIN102",
+	        "name": "User6 Admin"
+	    }
+	},
+	{
+	    "username": "user7",
+	    "password": "passUser7",
+	    "email": "user7@somemail.com",
+	    "phone": "1234509876",
+	    "isActive": false,
+	    "balance" : 68793380.98,
+	    "haveTakenLoan": true,
+	    "loanDetails": {
+	        "type": "PersonalLoan",
+	        "principalAmount": 10000,
+	        "interestRate": 6.5,
+	        "tenure": 5
+	    },
+	    "accNo": "ACC1008",
+	    "typeOfAccount": "Savings",
+	    "transactions": [],
+	    "isAdmin": false
+	}  
+]

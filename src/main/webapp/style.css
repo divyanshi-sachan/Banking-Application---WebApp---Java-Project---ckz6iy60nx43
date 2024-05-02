@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Navigation Menu Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Intro Section Styles */
+.intro {
+    text-align: center;
+}
+
+/* Services Section Styles */
+.services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services li {
+    background-color: #eaeaea;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* About and Contact Section Styles */
+.about, .contact {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.login-container, .transaction-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"], input[type="number"], select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        text-align: center;
+    }
+
+    .services li, .about, .contact {
+        width: auto;
+    }
+}

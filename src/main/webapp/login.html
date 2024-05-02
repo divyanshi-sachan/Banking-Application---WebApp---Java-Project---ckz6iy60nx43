@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Banking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>User Login</h2>
+        <form action="UserServlet" method="post">
+        	<input type="hidden" name="action" value="login">
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
