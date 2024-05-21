@@ -13,8 +13,11 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.util.Random;
 
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+@WebServlet("/WithdrawServlet")
 public class WithdrawServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -29,8 +32,8 @@ public class WithdrawServlet extends HttpServlet {
             JSONArray transactions = userJson.getJSONArray("transactions");
 
             JSONObject newTransaction = new JSONObject();
-            newTransaction.put("transactionId", generateTransactionId()); // Implement this method to generate unique IDs
-            newTransaction.put("date", new Date().toString()); // Use a proper date format as needed
+            newTransaction.put("transactionId", generateTransactionId());
+            newTransaction.put("date", new Date().toString());
             newTransaction.put("amount", amount);
             newTransaction.put("type", "withdraw");
 
@@ -41,36 +44,29 @@ public class WithdrawServlet extends HttpServlet {
         }
     }
 
-    // Implement the generateTransactionId method as per your application's requirement
     private String generateTransactionId() {
-        // Logic to generate a unique transaction ID
-        return "T" + new Random().nextInt(100000); // Placeholder logic
+        // Placeholder logic to generate a unique transaction ID
+        return "T" + new Random().nextInt(100000);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            response.sendRedirect("login.jsp"); // Redirect to login if user session is not valid
+            return;
+        }
 
-        String username = user.getUsername();
-        System.out.println("Inside Withdraw Servlet" + "Username is " + username);
-        double amount = Double.parseDouble(request.getParameter("amount"));
+        double amount;
+        try {
+            amount = Double.parseDouble(request.getParameter("amount"));
+        } catch (NumberFormatException e) {
+            response.sendRedirect("failure.jsp"); // Redirect if amount is not a valid number
+            return;
+        }
 
         String realPathToUsersFile = getServletContext().getRealPath("/users.json");
         File file = new File(realPathToUsersFile);
-
-        boolean success;
-        try {
-            success = user.performWithdraw(amount);
-        } catch (Exception e) {
-            success = false;
-            // Optionally log the exception e
-        }
-
-        if (!success) {
-            response.sendRedirect("failure.jsp");
-            return;
-        }
 
         try {
             String content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
@@ -79,7 +75,7 @@ public class WithdrawServlet extends HttpServlet {
             JSONObject userJson = null;
             for (int i = 0; i < users.length(); i++) {
                 JSONObject tempUserJson = users.getJSONObject(i);
-                if (tempUserJson.getString("username").equals(username)) {
+                if (tempUserJson.getString("username").equals(user.getUsername())) {
                     userJson = tempUserJson;
                     performWithdrawOperation(userJson, amount);
                     break;

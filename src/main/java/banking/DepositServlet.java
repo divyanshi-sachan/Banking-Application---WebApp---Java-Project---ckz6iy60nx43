@@ -13,27 +13,26 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.util.Random;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import java.io.IOException;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+@WebServlet("/DepositServlet")
 public class DepositServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    
     private String generateTransactionId() {
-        // Logic to generate a unique transaction ID
-        return "T" + new Random().nextInt(100000); // Placeholder logic
+
+        return "T" + new Random().nextInt(100000); 
     }
 
-	private synchronized void performDepositOperation(JSONObject userJson, double amount) throws JSONException {
+    private synchronized void performDepositOperation(JSONObject userJson, double amount) throws JSONException {
         // Perform the deposit logic
         double currentBalance = userJson.getDouble("balance");
         userJson.put("balance", currentBalance + amount);
 
         // Add transaction logic here if needed
-        
+
         // Handle transactions array
         JSONArray transactions = userJson.getJSONArray("transactions");
 
@@ -48,35 +47,28 @@ public class DepositServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	User user = (User) request.getSession().getAttribute("user");
-    	
-    	String username = user.getUsername();
+        User user = (User) request.getSession().getAttribute("user");
+
+        String username = user.getUsername();
 
         System.out.println("Inside Deposit Servlet" + "Username is " + username);
         double amount = Double.parseDouble(request.getParameter("amount"));
 
         String realPathToUsersFile = getServletContext().getRealPath("/users.json");
         File file = new File(realPathToUsersFile);
-        
-        String accountType = user.getTypeOfAccount();
 
         boolean success;
-        switch (accountType) {
-            case "Salary":
-                success = user.performDeposit(amount);
-                break;
-            case "Saving":
-                success = user.performDeposit(amount);
-                break;
-            case "Current":
-                success = user.performDeposit(amount);
-                break;
-            default:
-                // Handle unknown account type
-                success = false;
-                break;
+        try {
+            success = user.performDeposit(amount);
+        } catch (Exception e) {
+            success = false;
+            // Optionally log the exception e
         }
-        
+
+        if (!success) {
+            response.sendRedirect("failure.jsp");
+            return;
+        }
 
         try {
             String content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
