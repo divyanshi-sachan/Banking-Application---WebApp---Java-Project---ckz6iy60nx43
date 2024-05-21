@@ -9,44 +9,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>UserServlet</display-name>
-    <servlet-name>UserServlet</servlet-name>
-    <servlet-class>banking.UserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/UserServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DepositServlet</display-name>
-    <servlet-name>DepositServlet</servlet-name>
-    <servlet-class>banking.DepositServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DepositServlet</servlet-name>
-    <url-pattern>/DepositServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>WithdrawServlet</display-name>
-    <servlet-name>WithdrawServlet</servlet-name>
-    <servlet-class>banking.WithdrawServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>WithdrawServlet</servlet-name>
-    <url-pattern>/WithdrawServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>TransferServlet</display-name>
-    <servlet-name>TransferServlet</servlet-name>
-    <servlet-class>banking.TransferServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TransferServlet</servlet-name>
-    <url-pattern>/TransferServlet</url-pattern>
-  </servlet-mapping>
 </web-app>
